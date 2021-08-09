@@ -131,13 +131,29 @@ def num_points_scored(player_name)
   # We have a player name
   # We have our game_hash data
 
+  info_for_player_by_key(player_name, :points)
+end
+
+def shoe_size(player_name)
+  info_for_player_by_key(player_name, :shoe)
+end
+
+def info_for_player_by_key(player_name, key)
   game_hash.each do |_team, team_info|
     players = team_info[:players]
     players.each do |player|
-      return player[:points] if player[:player_name] == player_name
+      return player[key] if player[:player_name] == player_name
     end
   end
 end
 
-# Write code here
-num_points_scored("Jeff Adrien")
+def team_colors(team_name)
+  game_hash.each do |team, team_info|
+    if team_info[:team_name] == team_name
+      return team_info[:colors]
+    end
+  end
+  return "Team Not Found"
+end
+
+binding.pry

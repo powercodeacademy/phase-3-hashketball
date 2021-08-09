@@ -79,11 +79,15 @@ describe 'hashketball' do
 
     it 'knows the Brooklyn Nets colors are Black and White' do
       expect(team_colors("Brooklyn Nets")).to contain_exactly("Black", "White")
-      
+
     end
 
     it 'knows the Charlotte Hornets colors are Turquoise and Purple' do
       expect(team_colors("Charlotte Hornets")).to contain_exactly("Turquoise", "Purple")
+    end
+
+    it 'returns team not found if the team is not in our game hash' do
+      expect(team_colors("Sebastian Turtles")).to eq "Team Not Found"
     end
   end
 
