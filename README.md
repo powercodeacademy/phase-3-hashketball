@@ -9,7 +9,7 @@
 Welcome to Hashketball! In this lab, you will be implementing methods to work
 with a nested data structure. There's a method `#game_hash` that has been
 provided to you in this lab that will return a nested hash, which you'll be
-working with in as you write methods to solve the deliverables below.
+working with as you write methods to solve the deliverables below.
 
 We also strongly recommend that you read the **_entire_** README before you
 start coding. We're going to show some tips and tricks that make the coding a
@@ -31,30 +31,31 @@ simple, basic `[]` calls.
 You can confirm this by starting IRB from this lesson's main directory and
 requiring the `hashketball.rb` file with `require './hashketball.rb'`:
 
-```sh
+```console
 2.6.1 :001 > require './hashketball.rb'
 => true
 ```
 
 From here, you can interact with the `game_hash` method. Calling
 `game_hash[:home][:team_name]`, for example, should return `"Brooklyn Nets"`.
-This is because `game_hash` returns a hash - we can chain `[]` calls the hash it
-returns.
+This is because `game_hash` returns a hash - we can chain `[]` calls on the hash
+it returns.
 
-Wrap basic code that "reaches into" the nested data structure in methods that
-have friendly human-names.
+Write helper methods with descriptive names so it's easier to work with the data.
+For example, you can create a method called `all_players` that gets the players
+of both the home and away teams.
 
 Be flexible; work from what you have to where you want to go; or, work backward;
 or, make a midpoint between what you have and what you need to have
 
 ### Working with Nested Data Structures
 
-Run `learn`. There are a whole bunch of methods that are expected to exist. The
-first one is `num_points_scored`. But there's so much output. Let's make it more
-manageable.
+Run `bin/rspec`. There are a whole bunch of methods that are expected to exist.
+The first one is `num_points_scored`. But there's so much output. Let's make it
+more manageable.
 
 We can run this method's test, again by using the [-e][example] or `--example`
-flag: `rspec spec/hashketball_spec.rb -e num_points_scored`.
+flag: `bin/rspec spec/hashketball_spec.rb -e num_points_scored`.
 
 > **PRO TIP**: You can use this strategy to run small chunks of the test suite.
 > Simply look in the `spec/hashketball_spec.rb` file and find a `describe`
@@ -166,9 +167,9 @@ One last tool is the "Pry" debugging library - it can be a real help.
 
 At the top of `hashketball.rb` put the line `require "pry"`.
 
-Using Pry, when running RSpec tests with the `learn` command, we can pause the
-execution of our Ruby code. This allows us to step into the code and play with
-any available variables or methods that are in scope.
+Using Pry, when running RSpec tests with the `bin/rspec` command, we can pause
+the execution of our Ruby code. This allows us to step into the code and play
+with any available variables or methods that are in scope.
 
 We tell Ruby where to pause by writing `binding.pry` in our code. When Ruby sees
 that magic word, it will stop execution and hand things over to a REPL called
@@ -205,9 +206,9 @@ will resume running (until it hits another `binding.pry`). If you're all done
 with a given `pry` session `exit-program` or `exit!` will close Pry and return
 you to the command-line.
 
-When running `learn`, if any `binding.pry` lines are present in the solution,
-Pry will still kick in so you may want to remove them once you think you've
-solved a method.
+When running `bin/rspec`, if any `binding.pry` lines are present in the
+solution, Pry will still kick in so you may want to remove them once you think
+you've solved a method.
 
 ## Conclusion
 
